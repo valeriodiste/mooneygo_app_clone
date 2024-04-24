@@ -58,7 +58,10 @@ html, body {
 	position: absolute;
 	top: 19vh;
 	background-color: #ffffff;
-	cursor: pointer;
 	opacity: 0;
+	/* Make the div not selectable */
 	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
