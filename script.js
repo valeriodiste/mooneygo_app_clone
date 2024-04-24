@@ -24,9 +24,24 @@ function showDimensions() {
 }
 
 // Functoin to move to the "ticket" page
-function activateTicket() {
+function toggleActiveTicketPage(activate) {
 
-	console.log("Ticket activated!");
+	// Get the all tickets and active tickets sections
+	let myTicketsSection = $("#tickets-section");
+	let activeTicketSection = $("#active-ticket-section");
+
+	if (activate) {
+		// Hide the tickets section and show the active ticket section
+		myTicketsSection.hide();
+		activeTicketSection.show();
+		console.log("Ticket activated");
+	} else {
+		// Hide the active ticket section and show the tickets section
+		myTicketsSection.show();
+		activeTicketSection.hide();
+		console.log("Back to tickets page");
+	}
+
 
 }
 
@@ -56,12 +71,17 @@ $(document).ready(function () {
 	// On tap up, set the ticket overlay to have an opacity of 0 and "activate" the ticket
 	ticketClickOverlay.on("touchend", function () {
 		// Activate the ticket
-		activateTicket();
+		toggleActiveTicketPage(true);
 		// Wait 250ms before setting the opacity to 0
 		setTimeout(function () {
 			ticketClickOverlay.css("opacity", "0");
 		}, 250);
 	});
 
+	// On click of the "back" button on Android, go back to the tickets page
+	let backButton = $("#back-button");
+	backButton.on("click", function () {
+		toggleActiveTicketPage(false);
+	});
 
 });

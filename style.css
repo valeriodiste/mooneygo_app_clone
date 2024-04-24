@@ -82,3 +82,11 @@ html, body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
+#back-button {
+	width: 12vw;
+	height: 12vw;
+	position: absolute;
+	top: 1vh;
+	left: 2vh;
+	opacity: 0;
+}
