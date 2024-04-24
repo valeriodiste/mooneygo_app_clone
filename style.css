@@ -1,3 +1,6 @@
+:root {
+	--device-scale: 0.8;
+}
 html, body {
 	margin: 0;
 	padding: 0;
@@ -14,13 +17,13 @@ div:not(.corner) {
 }
 .div2 {
 	background-color: #00ff00;
-	width: calc(1080px / 2);
+	width: calc(var(--device-scale) * 1080px / 2);
 	height: calc(2340px / 2);
 	text-align: center;
 }
 .div3 {
 	background-color: #0000ff;
-	width: calc(1080px / 4);
+	width: calc(var(--device-scale)*1080px / 4);
 	height: calc(2340px / 4);
 	text-align: center;
 }
