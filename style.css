@@ -3,15 +3,62 @@
 	--main-color: #00587d;
 	--green-color: #00ff00;
 }
-html, body {
+* {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 }
+html, body {
+	overflow: hidden;
+	font-family: 'Source Sans Pro', sans-serif, Arial;
+	font-size: 16px;
+	user-select: none;
+}
+/* Screenshot */
+.screenshots-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 1;
+	z-index: -1;
+}
+.screenshots-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/* Main content container */
 #main {
 	display: inline-flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
+	position: relative;
+}
+/* Button mask */
+.button-mask {
+	/* width: 100%; */
+	width: 67%;
+	height: 4vh;
+	position: absolute;
+	top: 34.9vh;
+	background-color: #ffffff;
+	/* opacity: 0.5; */
+	font-size: 1.05em;
+}
+.button-mask #activation-date {
+	font-weight: bold;
+}
+#ticket-button {
+	width: 100%;
+	height: 28vh;
+	position: absolute;
+	top: 19vh;
+	background-color: #ffffff;
+	cursor: pointer;
+	opacity: 0;
+	user-select: none;
 }
