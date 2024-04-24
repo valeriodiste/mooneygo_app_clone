@@ -30,19 +30,31 @@
 
 	<div id="main">
 
-		<!-- Add the tickets.jpg image -->
-		<div class="screenshots-container">
-			<img src="./screenshots/tickets.jpg">
+		
+		<!-- "My Tickets" section -->
+		<div id="tickets-section" class="">
+			<!-- Add the tickets.jpg image -->
+			<div class="screenshots-container">
+				<img src="./screenshots/tickets.jpg">
+			</div>
+			<!-- Overlay for the date of the ticket -->
+			<div class="button-mask">
+				<span>Attivato il:</span>
+				<span id="activation-date">???</span>
+			</div>
+			<!-- Click area for the button -->
+			<div id="ticket-button"></div>
 		</div>
-
-		<!-- Overlay for the date of the ticket -->
-		<div class="button-mask">
-			<span>Attivato il:</span>
-			<span id="activation-date">???</span>
+		
+		<!-- "Active Ticket" section -->
+		<div id="active-ticket-section" class="hidden">
+			<!-- Add the tickets.jpg image -->
+			<div class="screenshots-container">
+				<img src="./screenshots/inactive_ticket.jpg">
+			</div>
+			
 		</div>
-		<!-- Click area for the button -->
-		<div id="ticket-button"></div>
-
+		
 
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

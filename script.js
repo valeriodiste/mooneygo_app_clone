@@ -47,15 +47,20 @@ $(document).ready(function () {
 	activationDateElement.text(dateText);
 
 	// Add click functions to the ticket button
+	let selectedOpacity = 0.4;
 	let ticketClickOverlay = $("#ticket-button");
 	// On tap down, set the ticket overlay to have an opacity of 0.3
 	ticketClickOverlay.on("touchstart", function () {
-		ticketClickOverlay.css("opacity", "0.3");
+		ticketClickOverlay.css("opacity", selectedOpacity);
 	});
 	// On tap up, set the ticket overlay to have an opacity of 0 and "activate" the ticket
 	ticketClickOverlay.on("touchend", function () {
-		ticketClickOverlay.css("opacity", "0");
+		// Activate the ticket
 		activateTicket();
+		// Wait 250ms before setting the opacity to 0
+		setTimeout(function () {
+			ticketClickOverlay.css("opacity", "0");
+		}, 250);
 	});
 
 

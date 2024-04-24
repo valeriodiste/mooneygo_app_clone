@@ -38,6 +38,22 @@ html, body {
 	height: 100vh;
 	position: relative;
 }
+#tickets-section {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#tickets-section.hidden {
+	display: none;
+}
+#active-ticket-section {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#active-ticket-section.hidden {
+	display: none;
+}
 /* Button mask */
 .button-mask {
 	/* width: 100%; */
@@ -45,6 +61,7 @@ html, body {
 	height: 4vh;
 	position: absolute;
 	top: 34.9vh;
+	left: calc(50% - 67% / 2);
 	background-color: #ffffff;
 	/* opacity: 0.5; */
 	font-size: 1.05em;
