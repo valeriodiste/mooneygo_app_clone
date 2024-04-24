@@ -1,5 +1,7 @@
 :root {
-	--device-scale: 0.8;
+	/* Colors */
+	--main-color: #00587d;
+	--green-color: #00ff00;
 }
 html, body {
 	margin: 0;
