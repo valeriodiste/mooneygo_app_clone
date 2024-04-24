@@ -1,8 +1,13 @@
 {
 	"name": "MooneyGo",
+	"short_name": "MooneyGo",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#00587d",
+	"theme_color": "#00587d",
 	"icons": [
 		{
-			"src": "\/android-icon-36x36.png",
+			"src": ".\/icons\/android-icon-36x36.png",
 			"sizes": "36x36",
 			"type": "image\/png",
 			"density": "0.75"
