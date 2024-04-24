@@ -8,7 +8,7 @@ html, body {
 	padding: 0;
 	overflow: hidden;
 }
-.main {
+#main {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
