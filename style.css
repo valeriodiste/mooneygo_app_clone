@@ -1,0 +1,49 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+/* DELETEEEEEEE */
+div:not(.corner) {
+	position: relative;
+}
+.div1 {
+	background-color: #ff0000;
+	width: 1080px;
+	height: 2340px;
+	text-align: center;
+}
+.div2 {
+	background-color: #00ff00;
+	width: calc(1080px / 2);
+	height: calc(2340px / 2);
+	text-align: center;
+}
+.div3 {
+	background-color: #0000ff;
+	width: calc(1080px / 4);
+	height: calc(2340px / 4);
+	text-align: center;
+}
+.corner {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-color: #000000;
+	z-index: 1;
+}
+.corner:nth-child(1) {
+	top: 0;
+	left: 0;
+}
+.corner:nth-child(2) {
+	top: 0;
+	right: 0;
+}
+.corner:nth-child(3) {
+	bottom: 0;
+	left: 0;
+}
+.corner:nth-child(4) {
+	bottom: 0;
+	right: 0;
+}
