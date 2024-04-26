@@ -36,6 +36,7 @@ function toggleActiveTicketPage(activate) {
 		// Hide the tickets section and show the active ticket section
 		myTicketsSection.css("opacity", 0);
 		activeTicketSection.css("opacity", 1);
+		resetTicketLoadBar();
 		console.log("Ticket activated");
 	} else {
 		// Hide the active ticket section and show the tickets section
@@ -43,7 +44,6 @@ function toggleActiveTicketPage(activate) {
 		activeTicketSection.css("opacity", 0);
 		console.log("Back to tickets page");
 	}
-
 
 }
 
@@ -80,6 +80,10 @@ function updateCurrentTime() {
 	currentTimeElement.text(currentTimeText);
 }
 
+function resetTicketLoadBar() {
+	$("#ticket-load-bar").width("100%");
+}
+
 function updateTicketLoadBar(deltaTime) {
 	// Set expiration time and start width
 	let expirationTime = 60;	// In seconds
@@ -93,6 +97,8 @@ function updateTicketLoadBar(deltaTime) {
 	let newWidth = currentWidth - (startWidth * deltaTime / (expirationTime * 1000));
 	if (newWidth < 0) {
 		newWidth = 0;
+	} else if (newWidth > startWidth) {
+		newWidth = startWidth;
 	}
 	loadBar.width(newWidth + "%");
 }
@@ -104,7 +110,7 @@ $(document).ready(function () {
 	// showDimensions();
 
 	// Get the ticket's emission and activation date to display (current day, some minutes before the current time)
-	let activationMinutesBefore = 14;
+	let activationMinutesBefore = 4;
 	let emissionMinutesBefore = 42;
 	let activationDateToUse = new Date();
 	activationDateToUse.setMinutes(activationDateToUse.getMinutes() - activationMinutesBefore);

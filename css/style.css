@@ -2,8 +2,8 @@
 	/* Colors */
 	--main-color: #00587d;
 	--main-color-transparent: #00587d20;
-	/* --green-color: #358551; */
-	--green-color: #2f8d3e;
+	--green-color: #358551;
+	/* --green-color: #2f8d3e; */
 }
 * {
 	margin: 0;
@@ -147,8 +147,11 @@ img {
 	margin-left: 6%;
 }
 .active-ticket-header .empty-aligner-div {
-	margin-right: 6%;
 	width: 3.5vw;
+	height: 100%;
+	content: '';
+	display: block;
+	margin-right: 6%;
 }
 .actual-ticket {
 	width: 100%;
@@ -351,7 +354,7 @@ img {
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	animation: wave 4s infinite linear;
+	animation: wave 4.25s infinite linear;
 }
 @keyframes wave {
 	0% {
