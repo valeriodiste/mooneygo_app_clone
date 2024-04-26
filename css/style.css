@@ -146,6 +146,10 @@ img {
 .back-button {
 	margin-left: 6%;
 }
+.active-ticket-header .empty-aligner-div {
+	margin-right: 6%;
+	width: 3.5vw;
+}
 .actual-ticket {
 	width: 100%;
 	height: calc(100vh - 7.5%);
@@ -252,8 +256,8 @@ img {
 	align-items: center;
 }
 #qr-code {
-	width: 82%;
-	height: 82%;
+	width: 80%;
+	height: 80%;
 }
 .qr-section-footer {
 	width: 100%;
