@@ -3,8 +3,11 @@
 <head>
 	<title>MooneyGo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Main font -->
+	<!-- <link rel="stylesheet" type="text/css" href="./css/font.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css">
 	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="./icons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="./icons/apple-icon-60x60.png">
@@ -46,19 +49,146 @@
 			<div id="ticket-button"></div>
 		</div>
 		
-		<!-- "Active Ticket" section -->
+		<!-- "Inactive Ticket" section -->
 		<div id="active-ticket-section" class="hidden">
 			<!-- Add the tickets.jpg image -->
-			<div class="screenshots-container">
-				<img src="./screenshots/inactive_ticket.jpg">
+			<div class="screenshots-container" >
+				<img src="./screenshots/inactive_ticket.jpg"/>
 			</div>
 			<!-- "Back" button click area -->
 			<div id="back-button"></div>
+			<!-- Actual atcive ticket elements -->
+			<div class="active-ticket-container">
+				<!-- Header -->
+				<div class="active-ticket-header">
+					<div class="back-button arrow-white"></div>
+					<div class="header-title">Ticket attivo</div>
+					<div></div>
+				</div>
+				<div class="actual-ticket">
+					<!-- Central div -->
+					<div class="central-div">
+						<!-- BIS logo -->
+						<div class="ticket-bis-logo">
+							<img src="./images/bis_logo.png">
+						</div>
+						<!-- Ticket description -->
+						<div class="ticket-text">
+							<div class="ticket-title">
+								PALOMBARA SABINA - Corsa Semplice
+							</div>
+							<div class="ticket-description">
+								Questo tipo di biglietto di corsa semplice consente di viaggiare su una singola linea fra tutte quelle gestite. Esso è valido per una sola corsa.
+							</div>
+						</div>
+						<!-- QR Code section container -->
+						<div class="ticket-qr">
+							<div class="qr-section-header">
+								<div class="qr-section-header-left">
+									<div class="ticket-icon">
+										<img src="./images/ticket_icon.png">
+									</div>
+									<div>
+										Controllo e validazione
+									</div>
+								</div>
+								<div class="arrow-blue"></div>
+							</div>
+							<div class="qr-code-image">
+								<!-- NOTE: Sample QR code corresponds to http://mccr.it/vt?t=20052168&v=0735 -->
+								<div id="qr-code"></div>
+							</div>
+							<div class="qr-section-footer">
+								<div class="qr-button-text">Ingrandisci QRCode</div>
+								<div class="ticket-infos">
+									<div class="ticket-infos-left">
+										<div class="clock-icon">
+											<img src="./images/clock_icon.png"/>
+										</div>
+										<div class="current-time" id="current-time">
+											00:00:00
+										</div>
+									</div>
+									<div class="ticket-infos-right">
+										<div class="load-bar">
+											<div id="ticket-load-bar" class="load-bar-inner"></div>
+										</div>
+										<div class="lock-icon">
+											<img src="./images/lock_icon.png"/>
+										</div>
+										<div class="ticket-code">042</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Wave animation section container -->
+						<div class="ticket-animation">
+							<div class="wave-parts-container">
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+								<div class="wave-part"><img src="./images/wave_pattern_double.png"></div>
+							</div>
+						</div>
+						<!-- Other ticket infos -->
+						<div class="ticket-other-infos">
+							<div class="ticket-activation-info">
+								Attivato il: <span id="ticket-activation-date">???</span>
+							</div>
+							<div>
+								Emesso il:
+								<br>
+								<span id="ticket-emission-date">???</span>
+							</div>
+							<div class="cost-info">
+								<div>
+									Costo:
+								</div>
+								<div>
+									1,10 €
+								</div>
+							</div>
+							<div class="details-info">
+								<div>
+									Dettagli
+								</div>
+								<div>
+									<div>
+										Leggi tutto
+									</div>
+									<div class="arrow-blue"></div>
+								</div>
+							</div>
+							<div class="ticket-code-info">
+								<div>
+									Codice ticket:
+								</div>
+								<div>
+									3/26982
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
+
 
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 	<script src="script.js"></script>
 
 </body>
