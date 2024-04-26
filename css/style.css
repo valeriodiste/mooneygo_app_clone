@@ -91,7 +91,7 @@ img {
 	left: calc(50% - 67% / 2);
 	background-color: #ffffff;
 	/* opacity: 0.5; */
-	font-size: 0.975em;
+	font-size: 0.95em;
 }
 .button-mask #activation-date {
 	font-weight: bold;
@@ -270,6 +270,7 @@ img {
 	justify-content: flex-start;
 	align-items: center;
 	color: var(--main-color);
+	line-height: 0.45em;
 }
 .qr-button-text {
 	height: 33%;

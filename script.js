@@ -117,8 +117,16 @@ $(document).ready(function () {
 	let emissionDateToUse = new Date();
 	emissionDateToUse.setMinutes(emissionDateToUse.getMinutes() - emissionMinutesBefore);
 	// Format the dates as "dd/mm/yyyy - hh:mm"
-	let activationDateText = activationDateToUse.getDate() + "/" + (activationDateToUse.getMonth() + 1) + "/" + activationDateToUse.getFullYear() + " - " + activationDateToUse.getHours() + ":" + activationDateToUse.getMinutes();
-	let emissionDateText = emissionDateToUse.getDate() + "/" + (emissionDateToUse.getMonth() + 1) + "/" + emissionDateToUse.getFullYear() + " - " + emissionDateToUse.getHours() + ":" + emissionDateToUse.getMinutes();
+	function getFormattedDate(date) {
+		let day = date.getDate().toString().padStart(2, "0");
+		let month = (date.getMonth() + 1).toString().padStart(2, "0");
+		let year = date.getFullYear();
+		let hours = date.getHours().toString().padStart(2, "0");
+		let minutes = date.getMinutes().toString().padStart(2, "0");
+		return day + "/" + month + "/" + year + " - " + hours + ":" + minutes;
+	}
+	let activationDateText = getFormattedDate(activationDateToUse);
+	let emissionDateText = getFormattedDate(emissionDateToUse);
 
 	// Update the ticket's activation date overlay text (in the tickets page)
 	let ticketsActivationDateElement = $("#activation-date");
