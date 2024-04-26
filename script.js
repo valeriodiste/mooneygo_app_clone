@@ -52,8 +52,8 @@ function createQRCode() {
 	// Get the "#qr-code" element
 	let qrCodeElement = $("#qr-code").get(0);
 	// Get the pixel width and height of the "#qr-code" element (in pixels)
-	let qrCodeWidth = qrCodeElement.clientWidth.toFixed(0);
-	let qrCodeHeight = qrCodeElement.clientHeight.toFixed(0);
+	let qrCodeWidth = qrCodeElement.clientWidth;
+	let qrCodeHeight = qrCodeElement.clientHeight;
 	// Create the QR code
 	let t_parameter = "20052168";
 	let v_parameter = "0735";
