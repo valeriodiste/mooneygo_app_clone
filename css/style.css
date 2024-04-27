@@ -198,14 +198,14 @@ img {
 	font-size: 1.1em;
 	font-weight: 600;
 	color: var(--main-color);
-	line-height: inherit;
+	line-height: 1.15em;
 }
 .ticket-description {
 	/* font-size: 1.05em; */
 	font-size: 0.875em;
 	margin: 2.5% 0;
 	font-weight: 300;
-	line-height: inherit;
+	line-height: 1.15em;
 }
 /* Ticket qr container */
 .ticket-qr {
