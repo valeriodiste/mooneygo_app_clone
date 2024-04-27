@@ -357,14 +357,14 @@ img {
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	animation: wave 4.25s infinite linear;
+	animation: wave 8.25s infinite linear;
 }
 @keyframes wave {
 	0% {
-		transform: translateX(-100%);
+		transform: translateX(-200%);
 	}
 	100% {
-		transform: translateX(0);
+		transform: translateX(0%);
 	}
 }
 .wave-part {

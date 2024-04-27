@@ -168,8 +168,11 @@ $(document).ready(function () {
 		ticketClickOverlay.css("opacity", "0");
 	}
 
-	// Create the QR code for the ticket
-	let qrCode = createQRCode();
+	// Create the QR code for the ticket (wait some seconds before creating it)
+	let qrCode = null;
+	setTimeout(function () {
+		qrCode = createQRCode();
+	}, 200);
 
 	// Update the current time each second
 	updateCurrentTime();
@@ -182,7 +185,7 @@ $(document).ready(function () {
 		let deltaTime = currentTime - lastTime;
 		lastTime = currentTime;
 		updateTicketLoadBar(deltaTime);
-	}, 100);
+	}, 50);
 	updateTicketLoadBar(0);
 
 
