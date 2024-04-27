@@ -1,5 +1,5 @@
 // Whether to start from the active ticket page or not
-let startFromActivrTicketPage = true;
+let startFromActivrTicketPage = false;
 
 // Function used to show the dimensions of the screen, the window, and the document on the page at document load
 function showDimensions() {
