@@ -62,7 +62,7 @@ function createQRCode() {
 		width: qrCodeWidth,
 		height: qrCodeHeight,
 		colorDark: "#151515",
-		colorLight: "#ffffff00",
+		colorLight: "#dfeaef",
 		correctLevel: QRCode.CorrectLevel.M
 	});
 

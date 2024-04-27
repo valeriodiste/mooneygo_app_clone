@@ -263,6 +263,7 @@ img {
 #qr-code {
 	width: 79%;
 	height: 79%;
+	background-color: #dfeaef;
 }
 .qr-section-footer {
 	width: 100%;
