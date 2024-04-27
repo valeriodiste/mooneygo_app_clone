@@ -37,18 +37,22 @@ function toggleActiveTicketPage(activate) {
 		myTicketsSection.css("opacity", 0);
 		activeTicketSection.css("opacity", 1);
 		resetTicketLoadBar();
+		// Change the meta tag with name "theme-color" to "#358551" (green color)
+		$("meta[name='theme-color']").attr("content", "#358551");
 		console.log("Ticket activated");
 	} else {
 		// Hide the active ticket section and show the tickets section
 		myTicketsSection.css("opacity", 1);
 		activeTicketSection.css("opacity", 0);
+		// Change back the meta tag with name "theme-color" to "#ffffff" (white color)
+		$("meta[name='theme-color']").attr("content", "#ffffff");
 		console.log("Back to tickets page");
 	}
 
 }
 
 // Get a ticket code for a given emission date
-function get_ticket_code(emissionDate) {
+function getTicketCode(emissionDate) {
 	// Offset in the future to consider for the given emission date to generate the ticket code (to be sure the ticket won't be expired)
 	let emissionDateFutureOffsetDays = 2;
 	// Given a ticket emission date in epoch time (i.e. seconds from 1/1/1970), approximate the ticket code
@@ -78,7 +82,7 @@ function createQRCode(emissionDate = null) {
 		// Ticket code and emission date of the ticket with the corresponding t parameter
 		let sample_ticket_code = 26982;
 		// Get the ticket code of the current ticket
-		let ticket_code = get_ticket_code(emissionDate);
+		let ticket_code = getTicketCode(emissionDate);
 		let tickets_code_difference = ticket_code - sample_ticket_code;
 		let new_t_parameter = (parseInt(t_parameter) + tickets_code_difference).toString();
 		console.log("New 't' parameter: " + new_t_parameter);
@@ -201,7 +205,7 @@ $(document).ready(function () {
 
 	// Set the ticket code on the ticket page
 	let ticket_code_element = $("#ticket-code");
-	let ticket_code = get_ticket_code(emissionDateToUse);
+	let ticket_code = getTicketCode(emissionDateToUse);
 	ticket_code_element.text(ticket_code);
 
 	// Create the QR code for the ticket (wait some seconds before creating it)
