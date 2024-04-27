@@ -1,5 +1,5 @@
 // Whether to start from the active ticket page or not
-let startFromActivrTicketPage = false;
+let startFromActivrTicketPage = true;
 
 // Function used to show the dimensions of the screen, the window, and the document on the page at document load
 function showDimensions() {
@@ -47,23 +47,54 @@ function toggleActiveTicketPage(activate) {
 
 }
 
+// Get a ticket code for a given emission date
+function get_ticket_code(emissionDate) {
+	// Offset in the future to consider for the given emission date to generate the ticket code (to be sure the ticket won't be expired)
+	let emissionDateFutureOffsetDays = 2;
+	// Given a ticket emission date in epoch time (i.e. seconds from 1/1/1970), approximate the ticket code
+	function approximateTicketCode(ticketEmissionDateInEpochTime) {
+		// NOTE: the w and b parameters of the line funcion were interpolated using 2 previous ticket emission dates and codes to estimate the function that relates the ticket emission date and the ticket code
+		let w_parameter = 389.0 / 468300.0;
+		let b_parameter = -1 * 10901564319.0 / 7805.0;
+		let ticketCode = Math.round(w_parameter * ticketEmissionDateInEpochTime + b_parameter);
+		return ticketCode;
+	}
+	let emissionDateFutureOffsetSeconds = emissionDateFutureOffsetDays * 24 * 60 * 60;
+	let emission_date_epoch_time = emissionDate.getTime() / 1000;
+	let ticket_code = approximateTicketCode(emission_date_epoch_time + emissionDateFutureOffsetSeconds);
+	return ticket_code;
+}
+
 // Function to create the QR code for the ticket
-function createQRCode() {
+function createQRCode(emissionDate = null) {
 	// Get the "#qr-code" element
 	let qrCodeElement = $("#qr-code").get(0);
 	// Get the pixel width and height of the "#qr-code" element (in pixels)
 	let qrCodeWidth = qrCodeElement.clientWidth;
 	let qrCodeHeight = qrCodeElement.clientHeight;
 	// Create the QR code
-	let t_parameter = "20052168";
+	let t_parameter = "20052167";
+	if (emissionDate != null) {
+		// Ticket code and emission date of the ticket with the corresponding t parameter
+		let sample_ticket_code = 26982;
+		// Get the ticket code of the current ticket
+		let ticket_code = get_ticket_code(emissionDate);
+		let tickets_code_difference = ticket_code - sample_ticket_code;
+		let new_t_parameter = (parseInt(t_parameter) + tickets_code_difference).toString();
+		console.log("New 't' parameter: " + new_t_parameter);
+		t_parameter = new_t_parameter;
+	}
 	let v_parameter = "0735";
+	let qr_code_text = "http://mccr.it/vt?t=" + t_parameter + "&v=" + v_parameter;
+	console.log("QR code text: " + qr_code_text);
+	// Url encoded
 	let qrcode = new QRCode(qrCodeElement, {
-		text: "http://mccr.it/vt?t=" + t_parameter + "&v=" + v_parameter,
+		text: qr_code_text,
 		width: qrCodeWidth,
 		height: qrCodeHeight,
 		colorDark: "#151515",
-		colorLight: "#dfeaef",
-		correctLevel: QRCode.CorrectLevel.M
+		colorLight: "#eff5f7",
+		correctLevel: QRCode.CorrectLevel.L
 	});
 
 	// Return the QR code
@@ -168,10 +199,15 @@ $(document).ready(function () {
 		ticketClickOverlay.css("opacity", "0");
 	}
 
+	// Set the ticket code on the ticket page
+	let ticket_code_element = $("#ticket-code");
+	let ticket_code = get_ticket_code(emissionDateToUse);
+	ticket_code_element.text(ticket_code);
+
 	// Create the QR code for the ticket (wait some seconds before creating it)
 	let qrCode = null;
 	setTimeout(function () {
-		qrCode = createQRCode();
+		qrCode = createQRCode(emissionDateToUse);
 	}, 200);
 
 	// Update the current time each second
@@ -187,6 +223,5 @@ $(document).ready(function () {
 		updateTicketLoadBar(deltaTime);
 	}, 50);
 	updateTicketLoadBar(0);
-
 
 });
